@@ -1,10 +1,14 @@
 class Account
-    attr_accessor :funds
-    require 'date'
+    STANDARD_VALIDITY_YRS = 5
+end
 
-    def initialize 
-        @funds = 1000
+    random_pincode = rand(1000..9999)
+
+    def set_expire_date
+        Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%Y')
     end
+
+    
 
     def withdraw(amount, pin code, account)
         case 
