@@ -10,7 +10,7 @@ require './lib/account.rb'
         it 'is expected to raise error if no owner is set' do
             expect {described_class.new }.to raise_error 'An Account owner is required'
         end
-        
+
 
         # before do 
          #   allow(account_owner).to receive(:balance).and_return(1000)
@@ -18,7 +18,7 @@ require './lib/account.rb'
         #end
 
         it 'has 1000$ on initialize' do
-            expect(subject.funds).to eq 1000
+            expect(subject.balance).to eq 1000
         end
 
 
@@ -37,8 +37,8 @@ require './lib/account.rb'
             expect(subject.account_status).to eq :active
         end
 
-        it 'deactivates account using the class method' do
-            Account.deactivate(subject)
+        it 'deactivates account using the instance method' do
+            subject.deactivate
             expect(subject.account_status).to eq :deactivated
         end
     

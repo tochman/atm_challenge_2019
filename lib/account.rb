@@ -1,23 +1,29 @@
 class Account
-    STANDARD_VALIDITY_YRS = 5
-end
+    attr_accessor :pin_code, :exp_date, :account_status, :balance, :owner
 
-random_pincode = rand(1000..9999)
+    STANDARD_VALIDITY_YRS = 5
 
     def initialize(attrs = {})
+        @balance = 1000
         @account_status = :active
-        set_owner(attrs[:owner])
+        @owner = set_owner(attrs[:owner])
+        @pin_code = set_pin_code()
+        @exp_date = set_expire_date()
     end
 
-    def set_expire_date
-        Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%Y')
-    end
-
-    def self.deactivate(account)
-        account.account_status = :deactivated
+    def deactivate
+        @account_status = :deactivated
     end
 
     private
+
+    def set_expire_date
+        Date.today.next_year(Account::STANDARD_VALIDITY_YRS).strftime('%m/%y')
+    end
+
+    def set_pin_code
+        rand(1000..9999)
+    end
 
     def set_owner(obj)
         obj == nil ? missing_owner : @owner = obj
@@ -26,16 +32,7 @@ random_pincode = rand(1000..9999)
     def missing_owner
         raise "An Account owner is required"
     end
-    
-
-
-    #def withdraw(amount, pin code, account)
-      #  case 
-      #  when
-      #  when
-      #  else
-       # end
-    #end
+end
 
     
 
