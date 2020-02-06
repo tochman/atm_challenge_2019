@@ -21,7 +21,7 @@ class Person
     end
 
     def missing_name
-        raise "An Account owner is required"
+        raise "A name is required"
     end
 
     def deposit_cash(amount, account)
