@@ -30,7 +30,7 @@ class Atm
     end
 
     def insufficient_funds_in_account?(amount, account)
-        amount > account.balance
+        amount > account.balance 
     end
 
     def insufficient_funds_in_atm?(amount)
