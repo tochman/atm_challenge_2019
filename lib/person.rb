@@ -1,5 +1,5 @@
 require 'pry'
-require 'account'
+require './lib/account'
 
 class Person
     attr_accessor :name, :cash, :account
@@ -22,10 +22,17 @@ class Person
     end
 
     def set_owner_of_account(name)
-        binding.pry
         name
     end
 
+    def deposit(amount)
+        self.account = account.balance + cash.to_i
+    end
+    binding.pry
+
+    #def deposit
+    #    raise(RuntimeError, "No account present")
+    #end
     private 
 
     def set_name(name)
@@ -36,13 +43,8 @@ class Person
         raise "A name is required"
     end
 
-    def deposit_cash(amount, account)
-        @funds += amount
-        account.balance = account.balance + amount
-    end
-
-    def withdraw(name, cash, account)
-        @funds -= amount
-        account.balance = account.balance - amount
-    end
+    #def withdraw(name, cash, account)
+       # @funds -= amount
+       # account.balance = account.balance - amount
+    #end
 end
