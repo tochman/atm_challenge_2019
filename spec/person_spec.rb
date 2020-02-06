@@ -1,5 +1,5 @@
-require './lib/person'
-require '.lib/atm'
+require './lib/person.rb'
+require './lib/atm.rb'
 
 describe Person do
     subject { described_class.new(name: 'Thomas') }
@@ -37,7 +37,7 @@ describe Person do
         it 'can deposit funds' do
             expect(subject.deposit(100)).to be_truthy
         end
-
+    end
 
 
     describe 'cannot manage funds if no account been created' do

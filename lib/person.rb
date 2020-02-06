@@ -3,9 +3,9 @@ class Person
 
 
     def initialize(attrs = {})
-        @name = name()
-        @cash = deposit_cash()
-        @account = create_account_holder()
+        @name = set_name(attrs[:name])
+        @cash = 0
+        @account = nil
         
         #@balance = 1000
         #@account_status = :active
@@ -14,12 +14,15 @@ class Person
         #@exp_date = set_expire_date()
     end
 
+    private 
 
-    def create_account_holder(obj)
-        obj == nil ? 
+    def set_name(name)
+        name == nil ? missing_name : name
     end
 
-private 
+    def missing_name
+        raise "An Account owner is required"
+    end
 
     def deposit_cash(amount, account)
         @funds += amount
