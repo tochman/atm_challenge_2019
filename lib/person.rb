@@ -1,3 +1,6 @@
+require 'pry'
+require 'account'
+
 class Person
     attr_accessor :name, :cash, :account
 
@@ -12,6 +15,15 @@ class Person
         #@owner = set_owner(attrs[:owner])
         #@pin_code = set_pin_code()
         #@exp_date = set_expire_date()
+    end
+
+    def create_account
+        self.account = Account.new(owner: self)
+    end
+
+    def set_owner_of_account(name)
+        binding.pry
+        name
     end
 
     private 
