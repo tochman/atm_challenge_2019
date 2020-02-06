@@ -26,18 +26,13 @@ class Person
     end
 
     def deposit(amount)
-        self.account = account.balance + cash.to_i
-    end
-    binding.pry
+        if self.account != nil 
+        account.balance += amount 
+        @cash -= amount 
+        else raise "No account present"
+        end
+    end  
 
-    def deposit
-       
-        raise "No account present" if self.account == nil 
-    else 
-        self.account 
-
-    end
-    
     private 
 
     def set_name(name)
