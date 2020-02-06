@@ -45,7 +45,7 @@ describe Person do
     end
 
 
-    describe 'cannot manage funds if no account been created' do
+    describe 'cannot manage funds if no account has been created' do
 
         it 'cannot deposit funds' do
             expect { subject.deposit(100) }.to raise_error(RuntimeError, 'No account present')

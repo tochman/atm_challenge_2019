@@ -30,9 +30,14 @@ class Person
     end
     binding.pry
 
-    #def deposit
-    #    raise(RuntimeError, "No account present")
-    #end
+    def deposit
+       
+        raise "No account present" if self.account == nil 
+    else 
+        self.account 
+
+    end
+    
     private 
 
     def set_name(name)
